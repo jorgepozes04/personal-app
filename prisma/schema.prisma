@@ -22,7 +22,6 @@ enum TransactionType {
 enum TransactionStatus {
   PENDING
   PAID
-  OVERDUE
 }
 
 enum RecurrenceFrequency {
@@ -54,6 +53,7 @@ model Account {
   type           AccountType
   initialBalance Decimal     @default(0) @db.Decimal(12, 2)
   currency       String      @default("BRL")
+  archived       Boolean     @default(false)
   createdAt      DateTime    @default(now())
   updatedAt      DateTime    @updatedAt
 
@@ -73,6 +73,7 @@ model Category {
   color     String?
   icon      String?
   isDefault Boolean         @default(false)
+  archived  Boolean         @default(false)
   createdAt DateTime        @default(now())
 
   user                 User?                   @relation(fields: [userId], references: [id], onDelete: Cascade)
