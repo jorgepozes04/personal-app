@@ -9,6 +9,8 @@ on:
 jobs:
   lint-typecheck-build:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: "postgresql://user:password@localhost:5432/db?schema=public"
 
     steps:
       - name: Checkout code
@@ -34,5 +36,3 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          DATABASE_URL: "postgresql://user:password@localhost:5432/db?schema=public"
