@@ -12,8 +12,6 @@ export const authConfig = {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      // authorize() fica só na versão completa (auth.ts),
-      // pois precisa consultar o banco — aqui é só a declaração do provider
       authorize: async () => null,
     }),
   ],
